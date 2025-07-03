@@ -7,16 +7,53 @@ public class Game
         Random rnd = new Random();
         int secretNumber = rnd.nextInt(1000) + 1;
         int remainingTries = 10;
+        boolean playerWins = false;
 
         while (remainingTries > 0)
         {
-            //Change to switch case
-            if (userGuess < secretNumber)
+            if (secretNumber == userGuess)
             {
-                System.out.println("Too low");
+                System.out.println("Correct!");
+                playerWins = true;
+                remainingTries = 0;
+            }
+            else if (secretNumber > userGuess)
+            {
+                if (secretNumber - userGuess <= 50)
+                {
+                    System.out.println("Close! A little higher!");
+                }
+                else
+                {
+                    System.out.println("Higher.");
+                }
+            }
+            else if (secretNumber < userGuess)
+            {
+                if (userGuess - secretNumber <= 50)
+                {
+                    System.out.println("Close! A little lower!");
+                }
+                else
+                {
+                    System.out.println("Lower");
+                }
+            }
+
+            if (remainingTries > 0)
+            {
                 remainingTries--;
                 Guess();
             }
+        }
+
+        if (playerWins)
+        {
+            System.out.println("Congratulations, you win!");
+        }
+        else
+        {
+            System.out.println("Sorry, you lost!");
         }
     }
 
