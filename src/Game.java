@@ -36,7 +36,7 @@ public class Game
                 }
                 else
                 {
-                    System.out.println("Lower");
+                    System.out.println("Lower.");
                 }
             }
 
@@ -53,7 +53,7 @@ public class Game
         }
         else
         {
-            System.out.println("Sorry, you lost!");
+            System.out.println("Sorry, you lost! The secret number was: " + secretNumber);
         }
     }
 
@@ -63,6 +63,11 @@ public class Game
 
         System.out.println("Enter a number between 1 and 1000: ");
         int userGuess = sc.nextInt();
+        if (!sc.hasNextInt() || userGuess < 1 || userGuess > 1000)
+        {
+            System.out.println("That is not a valid input. Please try again with an integer between 1 and 1000.");
+            Guess();
+        }
 
         Play(userGuess);
     }
