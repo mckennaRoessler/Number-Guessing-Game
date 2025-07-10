@@ -46,15 +46,6 @@ public class Game
                 Guess();
             }
         }
-
-        if (playerWins)
-        {
-            System.out.println("Congratulations, you win!");
-        }
-        else
-        {
-            System.out.println("Sorry, you lost! The secret number was: " + secretNumber);
-        }
     }
 
     public static void Guess()
@@ -93,6 +84,15 @@ public class Game
                         "The game will generate a secret random number between 1 and 1000."
                         + "If you can guess the number within 10 tries, you win!");
         Guess();
+
+        if (playerWins)
+        {
+            System.out.println("Congratulations, you win!");
+        }
+        else
+        {
+            System.out.println("Sorry, you lost! The secret number was: " + secretNumber);
+        }
     }
 }
 
