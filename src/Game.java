@@ -2,13 +2,13 @@ import java.util.Scanner;
 import java.util.Random;
 public class Game
 {
+    static boolean playerWins = false;
+    static int remainingTries = 10;
+    static Random rnd = new Random();
+    static int secretNumber = rnd.nextInt(1000) + 1;
+
     public static void Play(int userGuess)
     {
-        Random rnd = new Random();
-        int secretNumber = rnd.nextInt(1000) + 1;
-        int remainingTries = 10;
-        boolean playerWins = false;
-
         while (remainingTries > 0)
         {
             if (secretNumber == userGuess)
