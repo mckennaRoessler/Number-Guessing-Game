@@ -62,14 +62,28 @@ public class Game
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter a number between 1 and 1000: ");
-        int userGuess = sc.nextInt();
-        if (!sc.hasNextInt() || userGuess < 1 || userGuess > 1000)
+
+        if (sc.hasNextInt())
         {
-            System.out.println("That is not a valid input. Please try again with an integer between 1 and 1000.");
+            int userGuess = sc.nextInt();
+            if (userGuess >= 1 && userGuess <= 1000)
+            {
+                Play(userGuess);
+            }
+            else
+            {
+                String invalidInput = sc.next();
+                System.out.println(invalidInput + " not a valid input. Please try again with an integer between 1 and 1000.");
+                Guess();
+            }
+        }
+        else
+        {
+            String invalidInput = sc.next();
+            System.out.println(invalidInput + " not a valid input. Please try again with an integer between 1 and 1000.");
             Guess();
         }
-
-        Play(userGuess);
+        sc.close();
     }
 
     public static void main(String[] args)
